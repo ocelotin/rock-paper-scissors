@@ -10,7 +10,7 @@ function playRound(round) {
   const computerSelection = getComputerChoice();
   const winner = checkWinner(playerSelection, computerSelection);
   winners.push(winner);
-  logRound(playerSelection,computerSelection,winner,round);
+  logRound(playerSelection, computerSelection, winner, round);
 }
 
 function playerChoice() {
@@ -70,10 +70,10 @@ function logWins() {
   console.log("Ties: ", ties);
 }
 
-function logRound(playerChoice,computerChoice,winner,round){
-    console.log("Round: ", round);
-    console.log("Player Chose: ", playerChoice);
-    console.log("Computer Chose: ", computerChoice);
-    console.log(winner, "Won the Round");
-    console.log("------------------------------");
+function logRound(playerChoice, computerChoice, winner, round) {
+  console.log("Round: ", round);
+  console.log("Player Chose: ", playerChoice);
+  console.log("Computer Chose: ", computerChoice);
+  console.log(winner, "Won the Round");
+  console.log("------------------------------");
 }
