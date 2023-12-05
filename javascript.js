@@ -13,7 +13,7 @@ function playRound(playerSelection) {
 }
 
 const choiceRock = document.querySelector(".rock");
-choiceRock.addEventListener("click", () =>{
+choiceRock.addEventListener("click", () => {
   playRound("rock");
 });
 
@@ -23,24 +23,9 @@ choicePaper.addEventListener("click", () => {
 });
 
 const choiceScissors = document.querySelector(".scissors");
-choiceScissors.addEventListener("click", () =>{
+choiceScissors.addEventListener("click", () => {
   playRound("scissors");
 });
-
-// function game() {
-//   for (let i = 0; i < 5; i++) {
-//     playRound(i);
-//   }
-//   logWins();
-// }
-
-function validateInput(choice) {
-  if (choices.includes(choice)) {
-    return true;
-  } else {
-    return false;
-  }
-}
 
 function checkWinner(choicePlayer, choiceComputer) {
   if (choicePlayer === choiceComputer) {
@@ -56,16 +41,6 @@ function checkWinner(choicePlayer, choiceComputer) {
   }
 }
 
-function logWins() {
-  let playerWins = winners.filter((item) => item == "Player").length;
-  let computerWins = winners.filter((item) => item == "Computer").length;
-  let ties = winners.filter((item) => item == "Tie").length;
-  console.log("Results:");
-  console.log("Player Wins: ", playerWins);
-  console.log("Computer Wins: ", computerWins);
-  console.log("Ties: ", ties);
-}
-
 function logRound(playerChoice, computerChoice, winner, round) {
   console.log("Round: ", round);
   console.log("Player Chose: ", playerChoice);
@@ -73,3 +48,5 @@ function logRound(playerChoice, computerChoice, winner, round) {
   console.log(winner, "Won the Round");
   console.log("------------------------------");
 }
+
+const results = document.querySelector("div.results");
