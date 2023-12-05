@@ -5,38 +5,34 @@ function getComputerChoice() {
   return choices[Math.floor(Math.random() * 3)];
 }
 
-function playRound(round) {
-  const playerSelection = playerChoice();
+function playRound(playerSelection) {
   const computerSelection = getComputerChoice();
   const winner = checkWinner(playerSelection, computerSelection);
   winners.push(winner);
-  logRound(playerSelection, computerSelection, winner, round);
+  logRound(playerSelection, computerSelection, winner);
 }
 
-function playerChoice() {
-  let input = prompt("Type rock, paper or scissors");
-  while (input == null) {
-    input = prompt("Type rock, paper or scissors");
-  }
-  input = input.toLowerCase();
-  let check = validateInput(input);
-  while (check == false) {
-    input = prompt("Invalid input. Type rock, paper, scissors");
-    while (input == null) {
-      input = prompt("Type rock, paper or scissors");
-    }
-    input = input.toLowerCase();
-    check = validateInput(input);
-  }
-  return input;
-}
+const choiceRock = document.querySelector(".rock");
+choiceRock.addEventListener("click", () =>{
+  playRound("rock");
+});
 
-function game() {
-  for (let i = 0; i < 5; i++) {
-    playRound(i);
-  }
-  logWins();
-}
+const choicePaper = document.querySelector(".paper");
+choicePaper.addEventListener("click", () => {
+  playRound("paper");
+});
+
+const choiceScissors = document.querySelector(".scissors");
+choiceScissors.addEventListener("click", () =>{
+  playRound("scissors");
+});
+
+// function game() {
+//   for (let i = 0; i < 5; i++) {
+//     playRound(i);
+//   }
+//   logWins();
+// }
 
 function validateInput(choice) {
   if (choices.includes(choice)) {
