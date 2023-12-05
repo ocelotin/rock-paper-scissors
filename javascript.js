@@ -37,10 +37,10 @@ function checkWinner(choicePlayer, choiceComputer) {
     (choicePlayer === "paper" && choiceComputer === "rock") ||
     (choicePlayer === "scissors" && choiceComputer === "paper")
   ) {
-    scorePlayer ++;
+    scorePlayer++;
     return "Player";
   } else {
-    scoreComputer ++;
+    scoreComputer++;
     return "Computer";
   }
 }
@@ -49,20 +49,20 @@ const score = document.querySelector("div.score");
 const gameWinner = document.querySelector("div.winner");
 
 function logRound(playerChoice, computerChoice, winner) {
-  results.textContent = `Player Chose: ${playerChoice}`;
-  results.textContent += `Computer Chose: ${computerChoice}`;
+  results.textContent = `Player Chose: ${playerChoice}-----`;
+  results.textContent += `Computer Chose: ${computerChoice}-----`;
 
   if (winner == "Tie") {
     results.textContent += `It's a Tie`;
   } else {
     results.textContent += `${winner} Won the Round`;
   }
-  score.textContent = `Player Score: ${scorePlayer}`;
+  score.textContent = `Player Score: ${scorePlayer}-----`;
   score.textContent += `Computer Score ${scoreComputer}`;
-  
-  if (scorePlayer == 5){
-    gameWinner.textContent = " Player WINS "
-  } else if (scoreComputer == 5){
-    gameWinner.textContent = " Computer WINS "
+
+  if (scorePlayer == 5) {
+    gameWinner.innerHTML = "<h2> Player WINS </h2>";
+  } else if (scoreComputer == 5) {
+    gameWinner.innerHTML = "<h2> Computer WINS </h2>";
   }
 }
