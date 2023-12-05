@@ -1,5 +1,7 @@
 const choices = ["rock", "paper", "scissors"];
 const winners = [];
+let scorePlayer = 0;
+let scoreComputer = 0;
 
 function getComputerChoice() {
   return choices[Math.floor(Math.random() * 3)];
@@ -35,18 +37,32 @@ function checkWinner(choicePlayer, choiceComputer) {
     (choicePlayer === "paper" && choiceComputer === "rock") ||
     (choicePlayer === "scissors" && choiceComputer === "paper")
   ) {
+    scorePlayer ++;
     return "Player";
   } else {
+    scoreComputer ++;
     return "Computer";
   }
 }
-
-function logRound(playerChoice, computerChoice, winner, round) {
-  console.log("Round: ", round);
-  console.log("Player Chose: ", playerChoice);
-  console.log("Computer Chose: ", computerChoice);
-  console.log(winner, "Won the Round");
-  console.log("------------------------------");
-}
-
 const results = document.querySelector("div.results");
+const score = document.querySelector("div.score");
+const gameWinner = document.querySelector("div.winner");
+
+function logRound(playerChoice, computerChoice, winner) {
+  results.textContent = `Player Chose: ${playerChoice}`;
+  results.textContent += `Computer Chose: ${computerChoice}`;
+
+  if (winner == "Tie") {
+    results.textContent += `It's a Tie`;
+  } else {
+    results.textContent += `${winner} Won the Round`;
+  }
+  score.textContent = `Player Score: ${scorePlayer}`;
+  score.textContent += `Computer Score ${scoreComputer}`;
+  
+  if (scorePlayer == 5){
+    gameWinner.textContent = " Player WINS "
+  } else if (scoreComputer == 5){
+    gameWinner.textContent = " Computer WINS "
+  }
+}
